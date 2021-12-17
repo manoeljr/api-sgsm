@@ -1,0 +1,27 @@
+# Spring Configuration
+spring:
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sgsm?useSSL=false
+    username: postgres
+    password: docker
+    # Tomcat
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  # Jackson
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+      write-dates-with-zone-id: true
+
+server:
+  port: 8080
